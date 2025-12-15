@@ -1,0 +1,31 @@
+name: Autograding Tests
+'on':
+- push
+- repository_dispatch
+permissions:
+  checks: write
+  actions: read
+  contents: read
+jobs:
+  run-autograding-tests:
+    runs-on: ubuntu-latest
+    if: github.actor != 'github-classroom[bot]'
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    - name: Pytest · Práctica 02.04
+      id: pytest-practica-02-04
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Pytest · Práctica 02.04
+        setup-command: python -m pip install --upgrade pip && python -m pip install
+          -r requirements.txt
+        command: python -m pytest -q
+        timeout: 30
+        max-score: 100
+    - name: Autograding Reporter
+      uses: classroom-resources/autograding-grading-reporter@v1
+      env:
+        PYTEST-PRACTICA-02-04_RESULTS: "${{steps.pytest-practica-02-04.outputs.result}}"
+      with:
+        runners: pytest-practica-02-04
