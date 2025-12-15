@@ -13,19 +13,129 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
-    - name: Pytest · Práctica 02.04
-      id: pytest-practica-02-04
+    - name: EX01 – repeat_name
+      id: ex01-repeat_name
       uses: classroom-resources/autograding-command-grader@v1
       with:
-        test-name: Pytest · Práctica 02.04
+        test-name: EX01 – repeat_name
         setup-command: python -m pip install --upgrade pip && python -m pip install
           -r requirements.txt
-        command: python -m pytest -q
+        command: python -m pytest -q -k "test_ex01"
         timeout: 30
-        max-score: 100
+        max-score: 9
+    - name: EX02 – name_variants
+      id: ex02-name_variants
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: EX02 – name_variants
+        setup-command: python -m pip install --upgrade pip && python -m pip install
+          -r requirements.txt
+        command: python -m pytest -q -k "test_ex02"
+        timeout: 30
+        max-score: 9
+    - name: EX03 – name_upper_and_length
+      id: ex03-name_upper_and_length
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: EX03 – name_upper_and_length
+        setup-command: python -m pip install --upgrade pip && python -m pip install
+          -r requirements.txt
+        command: python -m pytest -q -k "test_ex03"
+        timeout: 30
+        max-score: 9
+    - name: EX04 – phone_core
+      id: ex04-phone_core
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: EX04 – phone_core
+        setup-command: python -m pip install --upgrade pip && python -m pip install
+          -r requirements.txt
+        command: python -m pytest -q -k "test_ex04"
+        timeout: 30
+        max-score: 9
+    - name: EX05 – reverse_phrase
+      id: ex05-reverse_phrase
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: EX05 – reverse_phrase
+        setup-command: python -m pip install --upgrade pip && python -m pip install
+          -r requirements.txt
+        command: python -m pytest -q -k "test_ex05"
+        timeout: 30
+        max-score: 9
+    - name: EX06 – emphasize_vowel
+      id: ex06-emphasize_vowel
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: EX06 – emphasize_vowel
+        setup-command: python -m pip install --upgrade pip && python -m pip install
+          -r requirements.txt
+        command: python -m pytest -q -k "test_ex06"
+        timeout: 30
+        max-score: 9
+    - name: EX07 – replace_domain
+      id: ex07-replace_domain
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: EX07 – replace_domain
+        setup-command: python -m pip install --upgrade pip && python -m pip install
+          -r requirements.txt
+        command: python -m pytest -q -k "test_ex07"
+        timeout: 30
+        max-score: 9
+    - name: EX08 – euros_cents
+      id: ex08-euros_cents
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: EX08 – euros_cents
+        setup-command: python -m pip install --upgrade pip && python -m pip install
+          -r requirements.txt
+        command: python -m pytest -q -k "test_ex08"
+        timeout: 30
+        max-score: 9
+    - name: EX09 – parse_date
+      id: ex09-parse_date
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: EX09 – parse_date
+        setup-command: python -m pip install --upgrade pip && python -m pip install
+          -r requirements.txt
+        command: python -m pytest -q -k "test_ex09"
+        timeout: 30
+        max-score: 9
+    - name: EX10 – split_products
+      id: ex10-split_products
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: EX10 – split_products
+        setup-command: python -m pip install --upgrade pip && python -m pip install
+          -r requirements.txt
+        command: python -m pytest -q -k "test_ex10"
+        timeout: 30
+        max-score: 9
+    - name: EX11 – format_product
+      id: ex11-format_product
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: EX11 – format_product
+        setup-command: python -m pip install --upgrade pip && python -m pip install
+          -r requirements.txt
+        command: python -m pytest -q -k "test_ex11"
+        timeout: 30
+        max-score: 10
     - name: Autograding Reporter
       uses: classroom-resources/autograding-grading-reporter@v1
       env:
-        PYTEST-PRACTICA-02-04_RESULTS: "${{steps.pytest-practica-02-04.outputs.result}}"
+        EX01-REPEAT_NAME_RESULTS: "${{steps.ex01-repeat_name.outputs.result}}"
+        EX02-NAME_VARIANTS_RESULTS: "${{steps.ex02-name_variants.outputs.result}}"
+        EX03-NAME_UPPER_AND_LENGTH_RESULTS: "${{steps.ex03-name_upper_and_length.outputs.result}}"
+        EX04-PHONE_CORE_RESULTS: "${{steps.ex04-phone_core.outputs.result}}"
+        EX05-REVERSE_PHRASE_RESULTS: "${{steps.ex05-reverse_phrase.outputs.result}}"
+        EX06-EMPHASIZE_VOWEL_RESULTS: "${{steps.ex06-emphasize_vowel.outputs.result}}"
+        EX07-REPLACE_DOMAIN_RESULTS: "${{steps.ex07-replace_domain.outputs.result}}"
+        EX08-EUROS_CENTS_RESULTS: "${{steps.ex08-euros_cents.outputs.result}}"
+        EX09-PARSE_DATE_RESULTS: "${{steps.ex09-parse_date.outputs.result}}"
+        EX10-SPLIT_PRODUCTS_RESULTS: "${{steps.ex10-split_products.outputs.result}}"
+        EX11-FORMAT_PRODUCT_RESULTS: "${{steps.ex11-format_product.outputs.result}}"
       with:
-        runners: pytest-practica-02-04
+        runners: ex01-repeat_name,ex02-name_variants,ex03-name_upper_and_length,ex04-phone_core,ex05-reverse_phrase,ex06-emphasize_vowel,ex07-replace_domain,ex08-euros_cents,ex09-parse_date,ex10-split_products,ex11-format_product
